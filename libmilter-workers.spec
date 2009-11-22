@@ -33,6 +33,7 @@ and distribute tasks when it receives commands from sendmail.
 
 %package -n %libnamestatic
 Summary: Libmilter and a pool of threads
+Group: Development/C
 
 %description -n %libnamestatic
 Under original libmilter each connection generates one thread
