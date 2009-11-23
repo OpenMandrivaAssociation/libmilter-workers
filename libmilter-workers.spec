@@ -2,8 +2,8 @@
 
 %define name libmilter-workers
 %define version %(echo %realversion | sed 's/-/_/g')
-%define release %mkrel 1
-%define libnamestatic %mklibname milter static-devel
+%define release %mkrel 2
+%define libnamestatic %{_lib}milter-static-devel
 
 Summary: Libmilter and a pool of threads
 Name: %{name}
@@ -34,6 +34,9 @@ and distribute tasks when it receives commands from sendmail.
 %package -n %libnamestatic
 Summary: Libmilter and a pool of threads
 Group: Development/C
+Obsoletes: %{_lib}milterstatic-devel
+Provides: milter-devel = %{version}-%{release}
+Provides: libmilter-devel = %{version}-%{release}
 
 %description -n %libnamestatic
 Under original libmilter each connection generates one thread
@@ -61,8 +64,8 @@ perl -pi -e "s/-O2/%optflags/" devtools/OS/Linux
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir -p %buildroot%_includedir/milter/
-cp include/libmilter/*.h %buildroot%_includedir/milter/
+mkdir -p %buildroot%_includedir/libmilter/
+cp include/libmilter/*.h %buildroot%_includedir/libmilter/
 
 mkdir -p %buildroot/%_libdir
 cp obj.`uname -s`.`uname -r`.`uname -m`/libmilter/libmilter.a %buildroot/%_libdir
@@ -73,6 +76,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -n %libnamestatic
 %defattr(-,root,root)
 %doc README
-%_includedir/milter/*.h
+%_includedir/libmilter/*.h
 %_libdir/*.a
 
