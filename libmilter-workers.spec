@@ -2,7 +2,7 @@
 
 %define name libmilter-workers
 %define version %(echo %realversion | sed 's/-/_/g')
-%define release %mkrel 2
+%define release %mkrel 3
 %define libnamestatic %{_lib}milter-static-devel
 
 Summary: Libmilter and a pool of threads
