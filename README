@@ -1,0 +1,69 @@
+
+
+
+	Libmilter and a pool of threads
+	
+1. What's this ???  Kesako ???
+******************************
+
+Under original libmilter each connection generates one thread
+on the filter. These threads remain alive during the connection
+lifetime. So, one connection equals one thread.
+
+For huge servers, handling many simultaneous connections (say, a 
+hundred and more), this may be an issue.
+
+Most of the time, these threads are idle waiting for sendmail
+commands (which come from remote clients). Tests at some domains
+shows that this hold for more than 95 % of the time.
+
+This libmilter version creates a fixed number of threads (workers)
+and distribute tasks when it receives commands from sendmail.
+
+2. Stability and state
+**********************
+
+This is a FFR feature (For Further Release)
+
+3. How to install 
+*****************
+
+  Version sendmail-8.14.3-1
+  *************************
+
+  - Just build and install it
+    # cd libmilter-workers-8.14.3-1
+    # ./Build -c
+    # ./Build install
+
+  - Recompile again your filter to use the new libmilter
+
+4. Changes
+**********
+
+   Jun 22, 2004
+   - engine.c modified to avoid compile errors when
+     _FFR_WORKERS_POOL wasn't defined
+   - updated to final sendmail 8.13.0 release
+
+   Jun 28, 2004 - Porting to sendmail 8.13.0
+   - missing prototypes added to libmilter.h
+   - sample devtools/Site/site.config.m4.pool define values
+     corrected.
+
+   Sep 3, 2004 - Porting to sendmail 8.13.1
+
+   Dec 28, 2004 - Porting to sendmail 8.13.2
+
+   Oct 17, 2005 - Porting to sendmail 8.13.5
+
+   Jun 15, 2009 - Corrected a bug on code used to close
+                  stalled connections
+
+5. Feedback
+***********
+
+Please send all feedback to :
+ - Jose-Marcio.Martins@ensmp.fr
+
+-

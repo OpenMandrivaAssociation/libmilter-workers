@@ -79,3 +79,21 @@ rm -rf $RPM_BUILD_ROOT
 %_includedir/libmilter/*.h
 %_libdir/*.a
 
+
+
+%changelog
+* Sun Dec 05 2010 Oden Eriksson <oeriksson@mandriva.com> 8.14.3_1-3mdv2011.0
++ Revision: 609756
+- rebuild
+
+* Mon Nov 23 2009 Olivier Thauvin <nanardon@mandriva.org> 8.14.3_1-2mdv2010.1
++ Revision: 469176
+- fix header location
+- rename devel package
+
+* Sun Nov 22 2009 Olivier Thauvin <nanardon@mandriva.org> 8.14.3_1-1mdv2010.1
++ Revision: 469077
+- add group to subpackage
+- import libmilter-workers
+
+
