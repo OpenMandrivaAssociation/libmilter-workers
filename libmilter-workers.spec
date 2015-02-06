@@ -9,7 +9,7 @@
 Summary:	Libmilter and a pool of threads
 Name:		libmilter-workers
 Version:	%{version}
-Release:	4
+Release:	5
 License:	Sendmail
 Group:		Development/C
 Url:		http://j-chkmail.ensmp.fr/
