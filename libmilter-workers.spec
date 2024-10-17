@@ -12,7 +12,7 @@ Version:	%{version}
 Release:	5
 License:	Sendmail
 Group:		Development/C
-Url:		http://j-chkmail.ensmp.fr/
+Url:		https://j-chkmail.ensmp.fr/
 Source0:	http://j-chkmail.ensmp.fr/libmilter/%{name}-%{realversion}.tgz
 Source1:	http://j-chkmail.ensmp.fr/libmilter/README
 
