@@ -16,6 +16,7 @@ Url:		https://j-chkmail.ensmp.fr/
 Source0:	http://j-chkmail.ensmp.fr/libmilter/%{name}-%{realversion}.tgz
 Source1:	http://j-chkmail.ensmp.fr/libmilter/README
 
+BuildRequires:	make
 %description
 Under original libmilter each connection generates one thread
 on the filter. These threads remain alive during the connection
